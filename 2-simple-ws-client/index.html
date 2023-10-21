@@ -1,0 +1,26 @@
+<html>
+    <head>
+        <title>Simple WS Client</title>
+        <script>
+            const webSocket = new WebSocket("ws://localhost:3000");
+            function sendMessage() {
+                webSocket.send(document.getElementById("inputbox").value);
+            }
+            webSocket.onmessage = function (event) {
+                document.getElementById("serverMessages").appendChild(document.createTextNode(event.data));
+                document.getElementById("serverMessages").appendChild(document.createElement("br"));
+            }
+        </script>
+    </head>
+    <body>
+        <input type="text" id="inputbox" />
+        <button onclick="sendMessage()">send</button>
+        <br/><br/>
+        <h2>
+            Events from server
+        </h2>
+        <div id="serverMessages">
+
+        </div>
+    </body>
+</html>

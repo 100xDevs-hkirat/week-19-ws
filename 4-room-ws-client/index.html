@@ -18,7 +18,6 @@
                     document.getElementById("serverMessages").appendChild(document.createElement("br"));
                 }
             }
-
             webSocket.onopen = () => {
                 const urlParams = new URLSearchParams(window.location.search);
                 const roomId = urlParams.get('roomId');
